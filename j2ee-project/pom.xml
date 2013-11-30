@@ -1,33 +1,66 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+	
+	<parent>
+		<groupId>ru.seyseich</groupId>
+		<artifactId>j2ee-parent</artifactId>
+<!-- 		<version>${projectVersion}</version> -->
+		<version>0.1-SNAPSHOT</version>
+		<relativePath>../j2ee-parent</relativePath>
+	</parent>
+		
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.seyseich</groupId>
 	<artifactId>j2ee-project</artifactId>
-	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>j2ee-project</name>
-	<url>http://maven.apache.org</url>
 	
 	<properties>
 		<org.springframework-version>3.2.4.RELEASE</org.springframework-version>
 	</properties>
 
+	<!-- 
 	<dependencies>
 
-		<!-- Spring Framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>3.2.4.RELEASE</version>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>3.2.4.RELEASE</version>
+			<version>${org.springframework-version}</version>
 		</dependency>
 
 	</dependencies>
+	-->
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/webapp</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 
 </project>

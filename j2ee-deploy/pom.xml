@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<parent>
+		<groupId>ru.seyseich</groupId>
+		<artifactId>j2ee-parent</artifactId>
+<!-- 		<version>${projectVersion}</version> -->
+		<version>0.1-SNAPSHOT</version>
+		<relativePath>../j2ee-parent</relativePath>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>j2ee-deploy</artifactId>
+	<packaging>ear</packaging>
+	<name>j2ee</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>ru.seyseich</groupId>
+			<artifactId>j2ee-project</artifactId>
+<!-- 			<version>${projectVersion}</version> -->
+				<version>0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<modules>
+						<webModule>
+							<groupId>ru.seyseich</groupId>
+							<artifactId>j2ee-project</artifactId>
+							<contextRoot>../j2ee-project</contextRoot>
+						</webModule>
+					</modules>
+					<displayName>WAR-Project</displayName>
+					<generateApplicationXml>true</generateApplicationXml>
+					<resourceDir>target/classes</resourceDir>
+				</configuration>
+			</plugin>
+		</plugins>
+		
+		<resources>
+            <resource>
+                <targetPath>META-INF/</targetPath>
+                <directory>${project.basedir}/ear-content/META-INF/</directory>
+                <excludes>
+                    <exclude>**/application.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        
+        <sourceDirectory>ear-content</sourceDirectory>
+	</build>
+	
+</project>

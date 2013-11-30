@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-application xmlns="http://www.bea.com/ns/weblogic/90" >
+   <application-param>
+       <param-name>webapp.encoding.default</param-name>
+       <param-value>UTF-8</param-value>
+   </application-param>
+   <prefer-application-packages>
+<!--        <package-name>org.joda.*</package-name> -->
+       <package-name>org.springframework.*</package-name>
+       <package-name>org.eclipse.persistence.*</package-name>
+   </prefer-application-packages>
+   <container-descriptor>
+          <prefer-web-inf-classes>true</prefer-web-inf-classes>
+   </container-descriptor>
+</weblogic-application>
