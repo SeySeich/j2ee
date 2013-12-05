@@ -26,6 +26,8 @@
 		<persistence-api-version>1.0.2</persistence-api-version>
 		<org.eclipse.persistence-version>2.5.1</org.eclipse.persistence-version>
 		<javax.annotation-version>1.2</javax.annotation-version>
+		<servlet.api-version>2.5</servlet.api-version>
+		<jackson.json-version>1.7.1</jackson.json-version>
 	</properties>
 	
 	<!-- 
