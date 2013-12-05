@@ -4,6 +4,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.springframework.org/schema/beans 
 							http://www.springframework.org/schema/beans/spring-beans.xsd" >
+							
 	<bean id="officeCategory" class="ru.seyseich.model.Category" >
 		<property name="name" value="Office" />
 	</bean>
@@ -50,4 +51,12 @@
 			</set>
 		</property>
 	</bean>
+	
+	<!-- Settings -->
+	
+	<bean id="myWarehouseConfig" class="org.springframework.jndi.JndiObjectFactoryBean" >
+		<property name="jndiName" value="cfg/Config/MyWarehouseConfig" />
+		<property name="lookupOnStartup" value="true" />
+	</bean>
+	
 </beans>
