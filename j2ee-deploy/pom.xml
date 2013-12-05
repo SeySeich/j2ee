@@ -26,25 +26,8 @@
 	</dependencies>
 	
 	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-ear-plugin</artifactId>
-				<configuration>
-					<modules>
-						<webModule>
-							<groupId>ru.seyseich</groupId>
-							<artifactId>j2ee-project</artifactId>
-							<contextRoot>../j2ee-project</contextRoot>
-						</webModule>
-					</modules>
-					<displayName>WAR-Project</displayName>
-					<generateApplicationXml>true</generateApplicationXml>
-					<resourceDir>target/classes</resourceDir>
-				</configuration>
-			</plugin>
-		</plugins>
-		
-		<resources>
+    
+        <resources>
             <resource>
                 <targetPath>META-INF/</targetPath>
                 <directory>${project.basedir}/ear-content/META-INF/</directory>
@@ -55,6 +38,25 @@
         </resources>
         
         <sourceDirectory>ear-content</sourceDirectory>
-	</build>
+        
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <modules>
+                        <webModule>
+                            <groupId>ru.seyseich</groupId>
+                            <artifactId>j2ee-project</artifactId>
+                            <contextRoot>/j2ee</contextRoot>
+                        </webModule>
+                    </modules>
+                    <displayName>WAR Project</displayName>
+                    <generateApplicationXml>true</generateApplicationXml>
+                    <resourcesDir>target/classes</resourcesDir>
+                </configuration>
+            </plugin>
+        </plugins>
+        
+    </build>
 	
 </project>

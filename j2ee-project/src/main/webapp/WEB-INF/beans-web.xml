@@ -54,9 +54,11 @@
 	
 	<!-- Settings -->
 	
+	<!-- 
 	<bean id="myWarehouseConfig" class="org.springframework.jndi.JndiObjectFactoryBean" >
 		<property name="jndiName" value="cfg/Config/MyWarehouseConfig" />
 		<property name="lookupOnStartup" value="true" />
 	</bean>
+	-->
 	
 </beans>
