@@ -51,4 +51,6 @@
 
 	<djpa:repositories base-package="ru.seyseich" />
 	
+	<bean id="warehouseService" class="ru.seyseich.domain.services.WarehouseService" />
+	
 </beans>

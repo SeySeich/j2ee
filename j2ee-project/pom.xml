@@ -55,8 +55,14 @@
 		   <scope>runtime</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>ru.seyseich</groupId>
+			<artifactId>j2ee-domain</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+		
 	</dependencies>
-	
+		
 	<build>
 		<plugins>
 			<plugin>

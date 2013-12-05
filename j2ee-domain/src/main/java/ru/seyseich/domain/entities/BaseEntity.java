@@ -16,6 +16,6 @@ public class BaseEntity
 	
 	// @formatter:off
 	public void setId( Integer id ) { this.id = id; }
-	public Integer getInteger( ) { return id; }
+	public Integer getId( ) { return id; }
 	// @formatter:on
 }
