@@ -43,7 +43,7 @@ public class WarehouseConfig implements Referenceable
 		reference.add( new StringRefAddr( MAX_ONE_TYPE_ITEM_AMOUNT, Integer.toString( _maxOneTypeItemAmount ) )  );
 		reference.add( new StringRefAddr( NOMENCLATURE_UPDATE_FREQUENCY, Integer.toString( _nomenclatureUpdateFrequency ) ) );
 		reference.add( new StringRefAddr( NAME, _name ) );
-		
+
 		return reference;
 	}
 }
