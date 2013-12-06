@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.seyseich.domain.repositories.IRepository;
+import ru.seyseich.domain.repositories.WarehouseRepository;
 import ru.seyseich.domain.entities.Warehouse;
 
 public class WarehouseService implements IService< Warehouse >
@@ -66,10 +66,5 @@ public class WarehouseService implements IService< Warehouse >
 	public Class<? extends Warehouse> getEntityClass( )
 	{
 		return Warehouse.class;
-	}
-	
-	private static interface WarehouseRepository extends IRepository< Warehouse >
-	{
-		// Empty
 	}
 }

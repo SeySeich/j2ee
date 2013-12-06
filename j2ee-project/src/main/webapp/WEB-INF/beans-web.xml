@@ -5,6 +5,9 @@
 		xsi:schemaLocation="http://www.springframework.org/schema/beans 
 							http://www.springframework.org/schema/beans/spring-beans.xsd" >
 							
+	<import resource="classpath:beans.xml" />
+					
+	<!-- 		
 	<bean id="officeCategory" class="ru.seyseich.model.Category" >
 		<property name="name" value="Office" />
 	</bean>
@@ -51,6 +54,7 @@
 			</set>
 		</property>
 	</bean>
+	 -->
 	
 	<!-- Settings -->
 	

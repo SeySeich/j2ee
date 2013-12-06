@@ -2,7 +2,7 @@ package ru.seyseich.mvc.responses;
 
 public class Response
 {
-	private String _status;
+	private String _status = "ok";
 	
 	// @formatter:off
 	public void setStatus( String status ) { _status = status; }
