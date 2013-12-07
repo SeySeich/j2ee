@@ -6,6 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table( name = "product" )
 public class Product extends BaseNamedEntity
@@ -35,7 +37,7 @@ public class Product extends BaseNamedEntity
 	public Category getCategory( ) { return category; }
 	
 	public void setWarehouse( Warehouse warehouse ) { this.warehouse = warehouse; }
-	public Warehouse getWarehouse( ) { return warehouse; }
+	@JsonIgnore public Warehouse getWarehouse( ) { return warehouse; }
 	
 	public void setDescription( String description ) { this.description = description; }
 	public String getDescription( ) { return description; }

@@ -47,6 +47,13 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${org.springframework.data.jpa-version}</version>
 		</dependency>
+		
+		<!-- J2EE Projects -->
+		<dependency>
+			<groupId>ru.seyseich.utils</groupId>
+			<artifactId>j2ee-utils</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	
 </project>

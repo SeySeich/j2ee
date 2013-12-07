@@ -5,8 +5,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
-@Table( name = "order" )
+@Table( name = "orders" )
 public class Order extends BaseEntity
 {
 	@ManyToOne
@@ -15,6 +17,6 @@ public class Order extends BaseEntity
 	
 	// @formatter:off
 	public void setCustomer( Customer customer ) { this.customer = customer; }
-	public Customer getCustomer( ) { return customer; }
+	@JsonIgnore public Customer getCustomer( ) { return customer; }
 	// @formatter:on
 }

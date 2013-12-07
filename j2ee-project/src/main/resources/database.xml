@@ -52,5 +52,9 @@
 	<djpa:repositories base-package="ru.seyseich" />
 	
 	<bean id="warehouseService" class="ru.seyseich.domain.services.WarehouseService" />
+	<bean id="productService" class="ru.seyseich.domain.services.ProductService" />
+	<bean id="categoryService" class="ru.seyseich.domain.services.CategoryService" />
+	<bean id="orderService" class="ru.seyseich.domain.services.OrderService" />
+	<bean id="customerService" class="ru.seyseich.domain.services.CustomerService" />
 	
 </beans>

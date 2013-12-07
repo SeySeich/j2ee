@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
+import ru.seyseich.mvc.responses.Response;
+
 public class BaseController
 {
 	private static final Logger log = LoggerFactory
@@ -35,5 +37,10 @@ public class BaseController
 		throws Exception
 	{
 		throw new Exception( String.format( message, args ) );
+	}
+	
+	protected Response getOkResponse( )
+	{
+		return new Response( );
 	}
 }
