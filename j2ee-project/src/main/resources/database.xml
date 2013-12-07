@@ -56,5 +56,6 @@
 	<bean id="categoryService" class="ru.seyseich.domain.services.CategoryService" />
 	<bean id="orderService" class="ru.seyseich.domain.services.OrderService" />
 	<bean id="customerService" class="ru.seyseich.domain.services.CustomerService" />
+	<bean id="orderItemService" class="ru.seyseich.domain.services.OrderItemService" />
 	
 </beans>

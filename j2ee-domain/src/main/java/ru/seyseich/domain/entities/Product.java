@@ -1,9 +1,13 @@
 package ru.seyseich.domain.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -32,6 +36,9 @@ public class Product extends BaseNamedEntity
 	@Column( name = "discount", nullable = true )
 	private float discount;
 	
+	@OneToMany( mappedBy = "product", cascade = CascadeType.ALL )
+	private List< OrderItem > orderItems;
+	
 	// @formatter:off
 	public void setCategory( Category category ) { this.category = category; }
 	public Category getCategory( ) { return category; }
@@ -50,5 +57,8 @@ public class Product extends BaseNamedEntity
 	
 	public void setDiscount( float discount ) { this.discount = discount; }
 	public float getDiscount( ) { return discount; }
+	
+	public void setOrderItems( List< OrderItem > orderItems ) { this.orderItems = orderItems; }
+	public List< OrderItem > getOrderItems( ) { return orderItems; }
 	// @formatter:on
 }
