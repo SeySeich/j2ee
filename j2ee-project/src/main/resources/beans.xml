@@ -3,14 +3,56 @@
 		xmlns="http://www.springframework.org/schema/beans"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:jms="http://www.springframework.org/schema/jms"
 		xsi:schemaLocation="http://www.springframework.org/schema/beans 
 							http://www.springframework.org/schema/beans/spring-beans.xsd
 							http://www.springframework.org/schema/context
-							http://www.springframework.org/schema/context/spring-context.xsd" >
+							http://www.springframework.org/schema/context/spring-context.xsd
+							http://www.springframework.org/schema/jms 
+							http://www.springframework.org/schema/jms/spring-jms.xsd" >
 
 	<context:annotation-config />
 	<context:component-scan base-package="ru.seyseich" />
 	
 	<import resource="database.xml" />
+	
+	<!-- JMS -->
+
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory" >
+		<property name="brokerURL" value="tcp://localhost:61616" />
+	</bean>
+
+	<bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop" >
+		<property name="connectionFactory" ref="connectionFactory" />
+	</bean>
+	
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" >
+		<property name="connectionFactory" ref="jmsFactory" />
+	</bean>
+	
+	<bean id="inQueue" class="org.apache.activemq.command.ActiveMQQueue" >
+		<constructor-arg value="J2EE.IN" />
+	</bean>
+	
+	<bean id="outQueue" class="org.apache.activemq.command.ActiveMQQueue" >
+		<constructor-arg value="J2EE.OUT" />
+	</bean>
+	
+	<jms:listener-container container-type="default" connection-factory="jmsFactory" acknowledge="auto" destination-type="queue" >
+		<jms:listener destination="J2EE.IN" ref="inListener" method="onMessage" />
+	</jms:listener-container>										
+
+	<!-- beans -->
+	
+	<bean id="inListener" class="ru.seyseich.mq.InputMessageListener" />
+	
+	<bean id="producer" class="ru.seyseich.mq.Producer" >
+		<property name="jmsTemplate" ref="jmsTemplate" />
+		<property name="destination" ref="outQueue" />
+	</bean>
+	
+	<bean id="productsRequester" class="ru.seyseich.mq.ProductsRequester">
+		<property name="producer" ref="producer" />
+	</bean>
 	
 </beans>

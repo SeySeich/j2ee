@@ -28,7 +28,10 @@
 		<org.eclipse.persistence-version>2.5.1</org.eclipse.persistence-version>
 		<javax.annotation-version>1.2</javax.annotation-version>
 		<servlet.api-version>2.5</servlet.api-version>
+		<activemq-version>5.8.0</activemq-version>
 		<jackson.json-version>1.7.1</jackson.json-version>
+		<org.apache.commons.codec-version>1.7</org.apache.commons.codec-version>
+		<org.apache.commons.io-version>2.0.1</org.apache.commons.io-version>
 	</properties>
 	
 	<dependencies>
